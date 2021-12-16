@@ -5,7 +5,7 @@ library changelog: false, identifier: "lib@master", retriever: modernSCM([
 
 pipeline {
     agent {
-        label 'micro-amazon'
+        label 'docker-32gb'
     }
     environment {
         PATH = '/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/ec2-user/.local/bin'
@@ -29,7 +29,7 @@ pipeline {
     }
     options {
         withCredentials(moleculePbmJenkinsCreds())
-//        disableConcurrentBuilds()
+        disableConcurrentBuilds()
     }
     stages {
         stage('Set build name'){
