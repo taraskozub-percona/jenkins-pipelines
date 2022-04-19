@@ -15,13 +15,14 @@ pipeline {
         SCENARIO = 'aws'
     }
     parameters {
-        string(name: 'BRANCH',description: 'PBM repo branch',defaultValue: 'pbm_2.0')
+        string(name: 'BRANCH',description: 'PBM repo branch',defaultValue: 'main')
         choice(name: 'PSMDB',description: 'PSMDB for testing',choices: ['psmdb-44','psmdb-42','psmdb-50'])
         choice(name: 'INSTANCE_TYPE',description: 'Ec2 instance type',choices: ['i3.large','i3en.large','t2.micro','i3.xlarge','i3en.xlarge'])
         choice(name: 'BACKUP_TYPE',description: 'Backup type',choices: ['physical','logical'])        
         choice(name: 'STORAGE',description: 'Storage for PBM',choices: ['aws','gcp'])
         string(name: 'TIMEOUT',description: 'Timeout for backup/restore',defaultValue: '3600')
         string(name: 'SIZE',description: 'Data size for test collection',defaultValue: '1000')
+        string(name: 'INDEXED',description: 'Part of data that should be indexed in test collection, possible values [1-1023]',defaultValue: '128')
         string(name: 'TESTING_BRANCH',description: 'Branch for testing repository',defaultValue: 'main')
         string(name: 'SSH_USER',description: 'User for debugging',defaultValue: 'none')
         string(name: 'SSH_PUBKEY',description: 'User ssh public key for debugging',defaultValue: 'none')
