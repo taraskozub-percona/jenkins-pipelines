@@ -68,7 +68,7 @@ pipeline {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'pmm-staging-slave', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh """
-                        yum install -y ansible
+                        amazon-linux-extras install ansible2
                         /usr/bin/packer init packer/pmm2.pkr.hcl
                         /usr/bin/packer build \
                         -var 'pmm_client_repos=original experimental' \
