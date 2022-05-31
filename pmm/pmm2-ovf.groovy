@@ -72,7 +72,7 @@ pipeline {
                         -var 'pmm_client_repos=original experimental' \
                         -var 'pmm_client_repo_name=percona-experimental-x86_64' \
                         -var 'pmm2_server_repo=experimental' \
-                        -only -only pmm2.virtualbox-ovf.image -color=false packer/pmm2.pkr.hcl \
+                        -only pmm2.virtualbox-ovf.image -color=false packer/pmm2.pkr.hcl \
                             | tee build.log
                     """
                 }
